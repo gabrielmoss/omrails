@@ -1,6 +1,11 @@
 Weblog::Application.routes.draw do  
 
+  devise_for :views
 
+#(put this in for some reason but it is makeing it break)
+
+  devise_for :clients 
+  
   get 'about' => 'pages#about'
 
   root :to => 'pages#home'

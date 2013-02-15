@@ -10,7 +10,7 @@
       </a>
  
       <!-- Be sure to leave the brand out there if you want it shown -->
-      <a class="brand" href="#">Edit Blink</a>
+      <%= link_to "Edit Blink", root_path, Class: "brand" %>
  
       <!-- Everything you want hidden at 940px or less, place within here -->
       <div class="nav-collapse collapse">
@@ -18,14 +18,18 @@
 		      	<li><%= link_to "home", root_path %></li>
 						<li><%= link_to "about", about_path %></li>
 					</ul>
-        <!-- .nav, .navbar-search, .navbar-form, etc -->
       </div>
 
 		  <div class="nav-collapse collapse">
-			      	<ul class="nav pull-right">
-				      	<li><%= link_to "Login", "#" %></li>		
-							</ul>
-		      </div>
-		    </div>
+        <ul class="nav pull-right">
+          <% if client_signed_in? %>
+            <li> <%= link_to "Edit Profile", edit_client_registration_path %></li>
+            <li> <%= link_to "logout", destroy_client_session_path, method: :delete %></li>
+          <% else %>
+  	      	<li><%= link_to "Login", new_client_session_path %></li>	
+          <% end %>	
+				</ul>
+      </div>
+    </div>
   </div>
 </div>
