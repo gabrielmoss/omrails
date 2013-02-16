@@ -1,5 +1,8 @@
 Weblog::Application.routes.draw do  
 
+  resources :pins
+
+
   devise_for :views
 
 #(put this in for some reason but it is makeing it break)
